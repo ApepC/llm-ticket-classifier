@@ -1,0 +1,11 @@
+ticket,true_category,true_severity
+My laptop won't turn on after I spilled water on it,hardware,high
+Outlook is crashing every time I open a PDF attachment,software,medium
+Cannot connect to VPN from home office,network,medium
+My password expired and I am locked out of everything,identity,high
+Azure production database is down and the website shows 500 errors,cloud,critical
+The keyboard spacebar is slightly sticky but still works,hardware,low
+I received a suspicious email asking me to verify my Microsoft credentials,identity,high
+Need Adobe Acrobat installed on my workstation,software,low
+Microsoft Teams calls keep dropping after 5 minutes,software,medium
+Storage account in Azure is showing access denied errors,cloud,high
