@@ -1,8 +1,48 @@
+# --- SECRETS & ENV (CRITICAL) ---
 .env
+.env.local
+.env.*.local
+*.pem
+*.key
+azure-credentials.json
+openai_key.txt
+anthropic_key.txt
+
+# --- PYTHON ---
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
 .venv/
 venv/
 *.egg-info/
-results*.csv
+dist/
+build/
+
+# --- LLM & AI SPECIFIC ---
+# Model artifacts (often >100MB, will break GitHub push)
+*.bin
+*.pth
+*.pt
+*.onnx
+*.safetensors
+.model_cache/
+.huggingface/
+*.model
+
+# Dataset caches & intermediate processing files
+*.csv
+!dataset_sample.csv  # Allow one small sanitized sample
+*.parquet
+*.arrow
+__MACOSX/
+
+# Jupyter Notebooks (often contain huge output blobs)
+.ipynb_checkpoints/
+*.ipynb
+!analysis_sample.ipynb # Allow one sanitized notebook
+
+# --- OS ---
 .DS_Store
+Thumbs.db
+Thumbs.db:encryptable   
