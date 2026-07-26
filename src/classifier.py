@@ -1,7 +1,7 @@
 """
 classifier.py — LLM-Powered IT Support Ticket Classifier
 =========================================================
-Author: CS
+Author: C Solo
 GitHub: github.com/ApepC
 
 Classifies IT support tickets by category, severity, and
