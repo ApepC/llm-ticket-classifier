@@ -1,9 +1,12 @@
 # --- SECRETS & ENV (CRITICAL) ---
 .env
-.env.local
-.env.*.local
+.env.*
+!.env.example
 *.pem
 *.key
+credentials.json
+service-account.json
+token.json
 azure-credentials.json
 openai_key.txt
 anthropic_key.txt
@@ -15,34 +18,88 @@ __pycache__/
 *.pyd
 .venv/
 venv/
+env/
 *.egg-info/
-dist/
 build/
+dist/
+.eggs/
 
-# --- LLM & AI SPECIFIC ---
-# Model artifacts (often >100MB, will break GitHub push)
-*.bin
-*.pth
-*.pt
-*.onnx
-*.safetensors
+# --- TESTING & LINTING ---
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# --- LLM & MODEL ARTIFACTS ---
+# Large model files (will break GitHub push)
+models/**/*.bin
+models/**/*.pth
+models/**/*.pt
+models/**/*.onnx
+models/**/*.safetensors
+models/**/*.ckpt
+*.pkl
+*.pickle
+*.joblib
 .model_cache/
 .huggingface/
-*.model
+.cache/
 
-# Dataset caches & intermediate processing files
-*.csv
-!dataset_sample.csv  # Allow one small sanitized sample
+# --- EXPERIMENT TRACKING ---
+wandb/
+mlruns/
+lightning_logs/
+runs/
+outputs/
+
+# --- VECTOR STORES & DBs ---
+.chroma/
+chroma_db/
+faiss_index/
+*.faiss
+*.sqlite
+*.sqlite3
+*.db
+
+# --- DATA ---
+# Ignore raw/private data but keep committed samples
+data/raw/
+data/private/
+datasets/
 *.parquet
 *.arrow
-__MACOSX/
+*.large.csv
 
-# Jupyter Notebooks (often contain huge output blobs)
+# Allow sanitized samples (comments must be on their own line!)
+!data/samples/
+!data/samples/**
+!tests/fixtures/**
+
+# --- NOTEBOOKS ---
+# Use nbstripout to strip outputs instead of ignoring notebooks entirely
 .ipynb_checkpoints/
-*.ipynb
-!analysis_sample.ipynb # Allow one sanitized notebook
+
+# --- LOGS ---
+*.log
+logs/
+
+# --- STREAMLIT ---
+.streamlit/secrets.toml
+
+# --- IDE ---
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
 
 # --- OS ---
 .DS_Store
 Thumbs.db
-Thumbs.db:encryptable   
+Thumbs.db:encryptable
+__MACOSX/
+
+# --- JUNK ---
+*.bak
+*.tmp
